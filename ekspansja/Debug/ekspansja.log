@@ -1,0 +1,3 @@
+﻿  opt_alg.cpp
+E:\semestr 5\Optymalizacja\proj1\ekspansja\ekspansja\opt_alg.cpp(93,19): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  ekspansja.vcxproj -> E:\semestr 5\Optymalizacja\proj1\ekspansja\Debug\ekspansja.exe
