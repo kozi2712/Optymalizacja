@@ -34,12 +34,18 @@ int main()
 void lab1()
 {
 	double* p = new double[2]{ 0,0 };
-	p = expansion(ff1T, 10, 1.0, 1.5, 1000);
-	cout << p[1] << "\n";
-	cout << p[0] << "\n";
+	//p = expansion(FR, 0, 1.0, 1, 1000);
+	//cout << p[1] << "\n";
+	//cout << p[0] << "\n";
 
-	solution x = fib(ff1T, 10, 100, 1e-5);
-	x = lag(ff1T, -100, 100, 0.001, 1e-7, 1000);
+
+	double epsilon = 1e-7;
+	double gamma = 1e-200;
+	int Nmax = 1000;
+
+	//zakomentowane jedno bo f_calls sie sumuje gdy sa obie metody wlaczone
+	//solution x = fib(FR, 1e-4, 1e-2, epsilon);
+	solution x = lag(FR, 1e-4, 1e-2, epsilon, gamma, Nmax);
 }
 
 void lab2()

@@ -118,7 +118,7 @@ solution fib(matrix(*ff)(matrix, matrix, matrix), double a, double b, double eps
 
 			C.x = B.x - (fibonacci(k - i - 2) / fibonacci(k - i - 1)) * (B.x - A.x);
 			D.x = A.x + B.x - C.x;
-			cout << C.x << endl;
+			//cout << C.x << endl;
 			C.fit_fun(ff, ud1, ud2);
 			D.fit_fun(ff, ud1, ud2);
 
@@ -177,6 +177,7 @@ solution lag(matrix(*ff)(matrix, matrix, matrix), double a, double b, double eps
 				Xopt.flag = 2;
 				cout << "\nminimum funkcji(metoda legendra)1: ";
 				cout << "\nx: " << Xopt.x << " y: " << Xopt.y << endl;
+				cout << "f_calls: " << solution::f_calls << endl;
 				return Xopt;
 			}
 
@@ -205,8 +206,9 @@ solution lag(matrix(*ff)(matrix, matrix, matrix), double a, double b, double eps
 			else {
 				Xopt = D2;
 				Xopt.flag = 2;
-				cout << "\nminimum funkcji(metoda legendra)2: ";
+				cout << "\nminimum funkcji(metoda lagrange'a)2: ";
 				cout << "\nx: " << Xopt.x << " y: " << Xopt.y << endl;
+				cout << "f_calls: " << solution::f_calls << endl;
 				return Xopt;
 			}
 			Xopt.ud.add_row((B.x - A.x)());
@@ -227,6 +229,7 @@ solution lag(matrix(*ff)(matrix, matrix, matrix), double a, double b, double eps
 
 		cout << "\nminimum funkcji(metoda legendra): ";
 		cout << "\nx: " << Xopt.x << " y: " << Xopt.y << endl;
+		cout << "f_calls: " << solution::f_calls << endl;
 		return Xopt;
 	}
 	catch (string ex_info)
