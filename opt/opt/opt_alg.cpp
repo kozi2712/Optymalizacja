@@ -123,9 +123,11 @@ solution fib(matrix(*ff)(matrix, matrix, matrix), double a, double b, double eps
 			D.fit_fun(ff, ud1, ud2);
 
 			//cout << "---------\nA.x: " << A.x << "\nB.x: " << B.x << "\nC.x: " << C.x << "\nD.x: " << D.x << endl;
+			cout << B.x - A.x << endl;
 		}
 
 		Xopt = C;
+		
 
 		//cout << "\nk: " << k << " fi: " << fi << " tmp: " << tmp;
 		cout << "minimum funkcji(metoda fibonacciego): ";
@@ -164,6 +166,7 @@ solution lag(matrix(*ff)(matrix, matrix, matrix), double a, double b, double eps
 		A.fit_fun(ff, ud1, ud2);
 		B.fit_fun(ff, ud1, ud2);
 		C.fit_fun(ff, ud1, ud2);
+		cout << B.x - A.x << endl;
 
 		while (true) {
 
@@ -209,6 +212,7 @@ solution lag(matrix(*ff)(matrix, matrix, matrix), double a, double b, double eps
 				cout << "\nminimum funkcji(metoda lagrange'a)2: ";
 				cout << "\nx: " << Xopt.x << " y: " << Xopt.y << endl;
 				cout << "f_calls: " << solution::f_calls << endl;
+				cout << B.x - A.x << endl;
 				return Xopt;
 			}
 			Xopt.ud.add_row((B.x - A.x)());
@@ -216,16 +220,19 @@ solution lag(matrix(*ff)(matrix, matrix, matrix), double a, double b, double eps
 			{
 				Xopt = D;
 				Xopt.flag = 0;
+				cout << B.x - A.x << endl;
 				break;
 			}
 			if (solution::f_calls > Nmax) {
 				Xopt = D;
 				Xopt.flag = 1;
+				cout << B.x - A.x << endl;
 				break;
 			}
 			D2 = D;
+			cout << B.x - A.x << endl;
 		}
-
+		//cout << B.x - A.x << endl;
 
 		cout << "\nminimum funkcji(metoda legendra): ";
 		cout << "\nx: " << Xopt.x << " y: " << Xopt.y << endl;
